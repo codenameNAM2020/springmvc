@@ -10,7 +10,6 @@ public class MappingController {
 
     private Logger log = LoggerFactory.getLogger(getClass());
 
-//    @RequestMapping({"/hello-basic", "/hello-go"})
     @RequestMapping(value = "/hello-basic")
     public String helloBasic() {
         log.info("helloBasic");
@@ -48,9 +47,7 @@ public class MappingController {
      */
     @GetMapping("/mapping/{userId}")
     public String mappingPath(@PathVariable("userId") String data) {    // 변수명 다르게
-//    public String mappingPath(@PathVariable String userId) {          // 변수명 같게
         log.info("pappingPath userId={}", data);
-//        log.info("pappingPath userId={}", userId);
         return "ok";
     }
 
@@ -86,7 +83,7 @@ public class MappingController {
      */
     @GetMapping(value = "/mapping-header", headers = "mode=debug")
     public String mappingHeader() {
-        log.info("mappingHeager");
+        log.info("mappingHeader");
         return "ok";
     }
 

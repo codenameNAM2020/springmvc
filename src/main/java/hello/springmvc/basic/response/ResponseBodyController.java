@@ -15,7 +15,6 @@ import java.io.IOException;
 
 @Slf4j
 @Controller
-@ResponseBody   // class 레벨에 적용된 ResponseBody
 //@RestController // Controller + ResponseBody
 public class ResponseBodyController {
 
@@ -24,12 +23,16 @@ public class ResponseBodyController {
         response.getWriter().write("ok");
     }
 
+    /**
+     * HttpEntity, ResponseEntity(Http Status 추가)
+     * @return
+     */
     @GetMapping("/response-body-string-v2")
     public ResponseEntity<String> responseBodyV2() {
         return new ResponseEntity<>("ok", HttpStatus.OK);
     }
 
-//    @ResponseBody
+    @ResponseBody
     @GetMapping("/response-body-string-v3")
     public String responseBodyV3() {
         return "ok";
@@ -46,7 +49,7 @@ public class ResponseBodyController {
     }
 
     @ResponseStatus(HttpStatus.OK)
-//    @ResponseBody
+    @ResponseBody
     @GetMapping("/response-body-json-v2")
     public HelloData responseBodyJsonV2() {
 
